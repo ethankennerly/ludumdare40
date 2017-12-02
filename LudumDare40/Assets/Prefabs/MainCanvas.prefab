@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tilt or tap to move left / right.
+  m_Text: 'Tilt or tap to drift left and right.
 
     Grab treasure to sink and score.
 
