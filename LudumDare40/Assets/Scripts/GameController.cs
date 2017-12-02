@@ -12,7 +12,8 @@ public sealed class GameController : MonoBehaviour
 
         // create the systems by creating individual features
         m_Systems = new Feature("Systems")
-            .Add(new ClickPointInputSystem(contexts));
+            .Add(new ClickPointInputSystem(contexts))
+            .Add(new DrivableBodySystem(contexts));
 
         // call Initialize() on all of the IInitializeSystems
         m_Systems.Initialize();

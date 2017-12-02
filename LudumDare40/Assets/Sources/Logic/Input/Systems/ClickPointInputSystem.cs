@@ -1,6 +1,6 @@
 using Entitas;
 
-public sealed class ClickPointInputSystem : IInitializeSystem, ICleanupSystem, ITearDownSystem
+public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem, ITearDownSystem
 {
     private readonly InputContext m_Context;
     private readonly IGroup<InputEntity> m_Inputs;
@@ -19,6 +19,11 @@ public sealed class ClickPointInputSystem : IInitializeSystem, ICleanupSystem, I
     public void TearDown()
     {
         RemoveListeners();
+    }
+
+    public void Execute()
+    {
+        ClickPoint.Update();
     }
 
     private void AddListeners()
