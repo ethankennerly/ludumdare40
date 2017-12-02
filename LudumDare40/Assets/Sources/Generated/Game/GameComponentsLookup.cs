@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
+    public const int DrivableBody = 0;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-
+        "DrivableBody"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(DrivableBodyComponent)
     };
 }
