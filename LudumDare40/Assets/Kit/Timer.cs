@@ -110,6 +110,19 @@ namespace Finegamedesign.Utils
             normal.value = Normalize(time);
         }
 
+        public void Clamp()
+        {
+            if (time > max)
+            {
+                time = max;
+            }
+            if (time < min)
+            {
+                time = min;
+            }
+            normal.value = Normalize(time);
+        }
+
         private float Normalize(float theTime)
         {
             float normal = (theTime - min) / (max - min);

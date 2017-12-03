@@ -39,6 +39,7 @@ public sealed class AirSupplySystem : IInitializeSystem, IExecuteSystem, ITearDo
                 continue;
             }
             timer.Update(amount);
+            timer.Clamp();
             bool isLiving = timer.normal.value > 0.0f;
             if (breather.isLiving == isLiving)
             {

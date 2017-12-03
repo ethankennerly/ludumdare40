@@ -6,10 +6,6 @@ public sealed class AirBubbleView : MonoBehaviour
 {
     public static event Action<float> onAddAir;
 
-    private Collider2D m_Collider;
-
-    private Animator m_Animator;
-
     [SerializeField]
     private float m_AirAmount = 20.0f;
 
@@ -18,6 +14,10 @@ public sealed class AirBubbleView : MonoBehaviour
 
     [SerializeField]
     private string m_EndState = "BubblePop";
+
+    private Collider2D m_Collider;
+
+    private Animator m_Animator;
 
     private void OnEnable()
     {
