@@ -23,6 +23,8 @@ public sealed class GameController : MonoBehaviour
 
         // call Initialize() on all of the IInitializeSystems
         m_Systems.Initialize();
+
+        ScoreModel.GetInstance().score.value = 0;
     }
 
     private void Update()

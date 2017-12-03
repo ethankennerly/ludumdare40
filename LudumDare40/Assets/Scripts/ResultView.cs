@@ -17,16 +17,17 @@ public sealed class ResultView : MonoBehaviour
     private void OnEnable()
     {
         LivingSystem.onLivingChanged += UpdateLiving;
+        ScoreWinTrigger2D.onTriggerEnter2D += UpdateWin;
     }
 
     private void OnDisable()
     {
         LivingSystem.onLivingChanged -= UpdateLiving;
+        ScoreWinTrigger2D.onTriggerEnter2D -= UpdateWin;
     }
 
     private void UpdateLiving(bool isLiving)
     {
-        Debug.Log("UpdateLiving: " + isLiving);
         string state;
         if (isLiving)
         {
@@ -37,5 +38,10 @@ public sealed class ResultView : MonoBehaviour
             state = m_LoseState;
         }
         m_Animator.Play(state);
+    }
+
+    private void UpdateWin()
+    {
+        m_Animator.Play(m_WinState);
     }
 }
