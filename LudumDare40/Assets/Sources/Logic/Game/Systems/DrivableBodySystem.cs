@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>
+public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializeSystem, ITearDownSystem
 {
     private readonly IGroup<GameEntity> m_DrivableBodies;
 
@@ -59,5 +59,32 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>
             force *= drivable.impulseMultiplier;
         }
         body.AddForce(force);
+    }
+
+    public void Initialize()
+    {
+        LivingSystem.onLivingChanged += OnLivingChanged;
+    }
+
+    public void TearDown()
+    {
+        LivingSystem.onLivingChanged -= OnLivingChanged;
+    }
+
+    private void OnLivingChanged(bool isLiving)
+    {
+        if (isLiving)
+        {
+            return;
+        }
+        foreach (var drivable in m_DrivableBodies.GetEntities())
+        {
+            Rigidbody2D body = drivable.drivableBody.body;
+            if (body == null)
+            {
+                continue;
+            }
+            GameObject.Destroy(body);
+        }
     }
 }

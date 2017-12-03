@@ -29,14 +29,6 @@ public sealed class LivingSystem : ReactiveSystem<GameEntity>
         for (int gameIndex = 0, gameEnd = entities.Count; gameIndex < gameEnd; ++gameIndex)
         {
             GameEntity gameEntity = entities[gameIndex];
-            if (gameEntity.isLiving)
-            {
-                Time.timeScale = 1.0f;
-            }
-            else
-            {
-                Time.timeScale = 0.0f;
-            }
             if (onLivingChanged != null)
             {
                 onLivingChanged(gameEntity.isLiving);
