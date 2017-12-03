@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public sealed class ScoreTrigger2D : MonoBehaviour
 {
+    public static event Action<GameObject> onPickup;
+
     [SerializeField]
     private int m_Amount = 1;
+
+    [SerializeField]
+    private bool m_IsPickup = true;
 
     [SerializeField]
     private string m_EndState = "TreasureTaken";
@@ -34,7 +40,10 @@ public sealed class ScoreTrigger2D : MonoBehaviour
 
         m_ScoreModel.score.value += m_Amount;
 
-        Debug.Log("ScoreTrigger2D.OnTriggerEnter2D: " + m_Amount + " makes " + m_ScoreModel.score.value);
+        if (m_IsPickup && onPickup != null)
+        {
+            onPickup(gameObject);
+        }
 
         if (m_Animator != null)
         {
