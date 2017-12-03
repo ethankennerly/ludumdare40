@@ -11,21 +11,19 @@ public partial class GameEntity {
     public AirSupplyComponent airSupply { get { return (AirSupplyComponent)GetComponent(GameComponentsLookup.AirSupply); } }
     public bool hasAirSupply { get { return HasComponent(GameComponentsLookup.AirSupply); } }
 
-    public void AddAirSupply(Finegamedesign.Utils.Timer newTimer, float newInitialTime, int newBreatherId) {
+    public void AddAirSupply(Finegamedesign.Utils.Timer newTimer, float newInitialTime) {
         var index = GameComponentsLookup.AirSupply;
         var component = CreateComponent<AirSupplyComponent>(index);
         component.timer = newTimer;
         component.initialTime = newInitialTime;
-        component.breatherId = newBreatherId;
         AddComponent(index, component);
     }
 
-    public void ReplaceAirSupply(Finegamedesign.Utils.Timer newTimer, float newInitialTime, int newBreatherId) {
+    public void ReplaceAirSupply(Finegamedesign.Utils.Timer newTimer, float newInitialTime) {
         var index = GameComponentsLookup.AirSupply;
         var component = CreateComponent<AirSupplyComponent>(index);
         component.timer = newTimer;
         component.initialTime = newInitialTime;
-        component.breatherId = newBreatherId;
         ReplaceComponent(index, component);
     }
 

@@ -9,5 +9,4 @@ public sealed class AirSupplyComponent : IComponent
 {
     public Timer timer;
     public float initialTime;
-    public int breatherId;
 }

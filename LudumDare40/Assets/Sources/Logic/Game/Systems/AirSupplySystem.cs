@@ -15,16 +15,15 @@ public sealed class AirSupplySystem : IExecuteSystem
 
     public void Execute()
     {
-        foreach (var airSupplyEntity in m_AirSupplies.GetEntities())
+        foreach (var breather in m_AirSupplies.GetEntities())
         {
-            AirSupplyComponent airSupply = airSupplyEntity.airSupply;
+            AirSupplyComponent airSupply = breather.airSupply;
             Timer timer = airSupply.timer;
             if (timer == null)
             {
                 continue;
             }
             timer.Update(-Time.deltaTime);
-            GameEntity breather = m_Context.GetEntityWithId(airSupply.breatherId);
             bool isLiving = timer.normal.value > 0.0f;
             if (breather.isLiving == isLiving)
             {
