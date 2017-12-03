@@ -723,6 +723,15 @@ MonoBehaviour:
       max: 20
       isEnabled: 1
     initialTime: 15
+      stateNormals:
+      - state: fast2
+        normalMin: 0
+      - state: fast1
+        normalMin: 0.25
+      - state: fast
+        normalMin: 0.5
+      - state: slow
+        normalMin: 0.75
 --- !u!114 &114203700832881988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -868,11 +877,21 @@ MonoBehaviour:
     min: 0
     max: 20
     isEnabled: 1
+    stateNormals:
+    - state: DiverDead
+      normalMin: 0
+    - state: DiverHealthCritical
+      normalMin: 0.001
+    - state: DiverHealthLow
+      normalMin: 0.25
+    - state: DiverIdle
+      normalMin: 0.5
   state: fill
   isChangeState: 0
   isSyncNormal: 1
   animators:
   - {fileID: 95398827045200410}
+  stateNormalAnimator: {fileID: 95760619033915020}
 --- !u!114 &114897665364005974
 MonoBehaviour:
   m_ObjectHideFlags: 1
