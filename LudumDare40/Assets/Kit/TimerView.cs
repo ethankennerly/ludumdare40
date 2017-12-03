@@ -112,6 +112,10 @@ namespace Finegamedesign.Utils
 
         private void OnStateNormalChanged(string nextState)
         {
+            if (stateNormalAnimator == null)
+            {
+                return;
+            }
             stateNormalAnimator.Play(nextState);
         }
 
