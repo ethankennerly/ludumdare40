@@ -42,7 +42,6 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
 
     private void ReplaceInput(float axisX, float axisY)
     {
-        DebugUtil.Log("ReplaceInput: " + axisX + ", " + axisY);
         m_Input.ReplaceInput(axisX, axisY, true);
     }
 }

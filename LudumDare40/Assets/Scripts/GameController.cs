@@ -5,8 +5,11 @@ public sealed class GameController : MonoBehaviour
 {
     private Systems m_Systems;
 
-    private void Start()
+    // Awake is before other game objects' start calls.
+    private void Awake()
     {
+        IdListener.ReplaceIds(true);
+
         // get a reference to the contexts
         var contexts = Contexts.sharedInstance;
 
@@ -28,5 +31,10 @@ public sealed class GameController : MonoBehaviour
         m_Systems.Execute();
         // call cleanup() on all the ICleanupSystems
         m_Systems.Cleanup();
+    }
+
+    private void OnDestroy()
+    {
+        IdListener.ReplaceIds(false);
     }
 }

@@ -11,23 +11,25 @@ public partial class GameEntity {
     public DrivableBodyComponent drivableBody { get { return (DrivableBodyComponent)GetComponent(GameComponentsLookup.DrivableBody); } }
     public bool hasDrivableBody { get { return HasComponent(GameComponentsLookup.DrivableBody); } }
 
-    public void AddDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce) {
+    public void AddDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier) {
         var index = GameComponentsLookup.DrivableBody;
         var component = CreateComponent<DrivableBodyComponent>(index);
         component.body = newBody;
         component.horizontalEnabled = newHorizontalEnabled;
         component.verticalEnabled = newVerticalEnabled;
         component.force = newForce;
+        component.impulseMultiplier = newImpulseMultiplier;
         AddComponent(index, component);
     }
 
-    public void ReplaceDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce) {
+    public void ReplaceDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier) {
         var index = GameComponentsLookup.DrivableBody;
         var component = CreateComponent<DrivableBodyComponent>(index);
         component.body = newBody;
         component.horizontalEnabled = newHorizontalEnabled;
         component.verticalEnabled = newVerticalEnabled;
         component.force = newForce;
+        component.impulseMultiplier = newImpulseMultiplier;
         ReplaceComponent(index, component);
     }
 
