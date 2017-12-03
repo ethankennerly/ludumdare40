@@ -15,7 +15,8 @@ public sealed class ScoreView : MonoBehaviour
     {
         UpdateScore(m_ScoreModel.score.value);
         m_ScoreModel.score.onChanged += UpdateScore;
-        UpdateScore(m_ScoreModel.highScore.value);
+
+        UpdateHighScore(m_ScoreModel.highScore.value);
         m_ScoreModel.highScore.onChanged += UpdateHighScore;
     }
 

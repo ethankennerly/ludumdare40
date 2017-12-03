@@ -1,3 +1,5 @@
+using Finegamedesign.Utils;
+
 public sealed class ScoreModel
 {
     private static ScoreModel s_ScoreModel;
@@ -31,5 +33,6 @@ public sealed class ScoreModel
             return;
         }
         highScore.value = nextScore;
+        DebugUtil.Log("ScoreModel.UpdateHighScore: " + highScore.value);
     }
 }
