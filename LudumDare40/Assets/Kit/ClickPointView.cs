@@ -1,4 +1,5 @@
 using UnityEngine;
+using Finegamedesign.Utils;
 
 public sealed class ClickPointView : MonoBehaviour
 {

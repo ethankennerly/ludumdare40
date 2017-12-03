@@ -387,6 +387,7 @@ MonoBehaviour:
     horizontalEnabled: 1
     verticalEnabled: 0
     force: {x: 1, y: 1}
+    impulseMultiplier: 5
 --- !u!114 &114011668269137956
 MonoBehaviour:
   m_ObjectHideFlags: 1

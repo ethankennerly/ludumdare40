@@ -1,11 +1,10 @@
 using Entitas;
+using Finegamedesign.Utils;
 
 public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, ITearDownSystem
 {
     private readonly InputContext m_Context;
     private readonly InputEntity m_Input;
-
-    private float inputMultiplier = 20.0f;
 
     public ClickPointInputSystem(Contexts contexts)
     {
@@ -26,20 +25,24 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
     public void Execute()
     {
         ClickPoint.Update();
+        KeyView.Update();
     }
 
     private void AddListeners()
     {
-        ClickPoint.onClickXY += ReplaceInput;
+        ClickPoint.onAxisXY += ReplaceInput;
+        KeyView.onKeyDownXY += ReplaceInput;
     }
 
     private void RemoveListeners()
     {
-        ClickPoint.onClickXY -= ReplaceInput;
+        ClickPoint.onAxisXY -= ReplaceInput;
+        KeyView.onKeyDownXY -= ReplaceInput;
     }
 
-    private void ReplaceInput(float worldX, float worldY)
+    private void ReplaceInput(float axisX, float axisY)
     {
-        m_Input.ReplaceInput(inputMultiplier * worldX, inputMultiplier * worldY);
+        DebugUtil.Log("ReplaceInput: " + axisX + ", " + axisY);
+        m_Input.ReplaceInput(axisX, axisY, true);
     }
 }

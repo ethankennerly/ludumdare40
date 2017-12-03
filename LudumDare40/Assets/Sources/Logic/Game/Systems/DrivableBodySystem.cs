@@ -29,27 +29,31 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>
             InputComponent input = inputEntity.input;
             foreach (var drivable in m_DrivableBodies.GetEntities())
             {
-                AddForce(drivable.drivableBody, input.x, input.y);
+                AddForce(drivable.drivableBody, input);
             }
         }
     }
 
-    private static void AddForce(DrivableBodyComponent drivable, float worldX, float worldY)
+    private static void AddForce(DrivableBodyComponent drivable, InputComponent input)
     {
         float dx = 0.0f;
         float dy = 0.0f;
         Rigidbody2D body = drivable.body;
         if (drivable.horizontalEnabled)
         {
-            dx = worldX - body.position.x;
+            dx = input.x - body.position.x;
         }
         if (drivable.verticalEnabled)
         {
-            dx = worldY - body.position.y;
+            dx = input.y - body.position.y;
         }
         Vector2 force = new Vector2(
             dx * drivable.force.x,
             dy * drivable.force.y);
+        if (input.isImpulse)
+        {
+            force *= drivable.impulseMultiplier;
+        }
         body.AddForce(force);
     }
 }
