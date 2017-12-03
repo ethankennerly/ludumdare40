@@ -29,14 +29,6 @@ public sealed class GravityScaler2D : MonoBehaviour
             return;
         }
         float gravityScale = body.gravityScale;
-        if (gravityScale < m_Min)
-        {
-            return;
-        }
-        if (gravityScale > m_Max)
-        {
-            return;
-        }
         body.gravityScale = Mathf.Clamp(gravityScale + amount, m_Min, m_Max);
     }
 }

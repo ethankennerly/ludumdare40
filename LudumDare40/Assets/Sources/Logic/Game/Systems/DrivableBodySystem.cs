@@ -39,6 +39,10 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>
         float dx = 0.0f;
         float dy = 0.0f;
         Rigidbody2D body = drivable.body;
+        if (body == null)
+        {
+            return;
+        }
         if (drivable.horizontalEnabled)
         {
             dx = input.x - body.position.x;

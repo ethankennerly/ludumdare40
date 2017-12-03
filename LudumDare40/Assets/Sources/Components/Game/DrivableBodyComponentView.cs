@@ -9,6 +9,6 @@ public sealed class DrivableBodyComponentView : MonoBehaviour
     {
         GameEntity entity = ComponentView.LinkGame(gameObject);
         int index = GameComponentsLookup.DrivableBody;
-        entity.AddComponent(index, m_Component);
+        entity.ReplaceComponent(index, m_Component);
     }
 }
