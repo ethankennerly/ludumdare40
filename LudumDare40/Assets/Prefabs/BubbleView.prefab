@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed382164fd067a4bb83a05f1ee4405b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AirAmount: 3
+  m_AirAmount: 4
   m_IsStay: 0
   m_EndState: BubblePop
 --- !u!114 &114956233870170708
