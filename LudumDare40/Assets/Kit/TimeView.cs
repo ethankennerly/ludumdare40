@@ -22,5 +22,14 @@ namespace Finegamedesign.Utils
             Time.timeScale = m_TimeScale;
             m_TimeScale = Time.timeScale;
         }
+
+        private void Update()
+        {
+            if (m_TimeScale == Time.timeScale)
+            {
+                return;
+            }
+            m_TimeScale = Time.timeScale;
+        }
     }
 }
