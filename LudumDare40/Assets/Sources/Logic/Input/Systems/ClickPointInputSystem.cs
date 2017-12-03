@@ -1,14 +1,14 @@
 using Entitas;
 
-public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, ICleanupSystem, ITearDownSystem
+public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, ITearDownSystem
 {
     private readonly InputContext m_Context;
-    private readonly IGroup<InputEntity> m_Inputs;
+    private readonly InputEntity m_Input;
 
     public ClickPointInputSystem(Contexts contexts)
     {
         m_Context = contexts.input;
-        m_Inputs = m_Context.GetGroup(InputMatcher.Input);
+        m_Input = m_Context.CreateEntity();
     }
 
     public void Initialize()
@@ -28,26 +28,11 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
 
     private void AddListeners()
     {
-        ClickPoint.onClickXY += AddInput;
+        ClickPoint.onClickXY += m_Input.ReplaceInput;
     }
 
     private void RemoveListeners()
     {
-        ClickPoint.onClickXY -= AddInput;
-    }
-
-    private void AddInput(float worldX, float worldY)
-    {
-        m_Context.CreateEntity()
-            .AddInput(worldX, worldY);
-    }
-
-    public void Cleanup()
-    {
-        InputEntity[] inputEntities = m_Inputs.GetEntities();
-        foreach (InputEntity entity in inputEntities)
-        {
-            entity.Destroy();
-        }
+        ClickPoint.onClickXY -= m_Input.ReplaceInput;
     }
 }

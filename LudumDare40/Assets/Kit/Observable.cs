@@ -41,6 +41,6 @@ public sealed class Observable<T>
 
     public override string ToString()
     {
-        return base.ToString() + "<" + m_Value.ToString() + ">";
+        return base.ToString() + "<" + m_Value + ">";
     }
 }

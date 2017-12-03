@@ -1,9 +1,13 @@
+using System;
+
 namespace Finegamedesign.Utils
 {
+    [Serializable]
     public sealed class Timer
     {
         public Observable<float> normal = new Observable<float>();
         public float NormalInState { get; private set; }
+        public float resetTime = 0.0f;
         public float time = 0.0f;
         public float min = 0.0f;
         public float max = 40.0f;
@@ -92,7 +96,7 @@ namespace Finegamedesign.Utils
 
         public void Reset()
         {
-            time = 0.0f;
+            time = resetTime;
             normal.value = Normalize(time);
         }
 

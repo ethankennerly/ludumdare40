@@ -5,8 +5,9 @@ namespace Finegamedesign.Utils
 {
     public sealed class TimerView : MonoBehaviour
     {
+        [SerializeField]
         private Timer m_Model;
-        private Timer model
+        public Timer model
         {
             get
             {
