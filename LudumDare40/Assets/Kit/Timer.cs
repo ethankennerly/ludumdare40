@@ -17,10 +17,11 @@ namespace Finegamedesign.Utils
         public Observable<string> State = new Observable<string>();
         public int StateIndex { get; private set; }
 
-        private sealed class StateNormal
+        [Serializable]
+        public sealed class StateNormal
         {
             public string state;
-            private float normalMin;
+            public float normalMin;
             private float normalMax;
 
             public StateNormal(float theNormalMin, string theState)
@@ -87,7 +88,7 @@ namespace Finegamedesign.Utils
             }
         }
 
-        private StateNormal[] stateNormals = {
+        public StateNormal[] stateNormals = {
             new StateNormal(0.0f, "fast2"),
             new StateNormal(0.25f, "fast1"),
             new StateNormal(0.50f, "fast"),

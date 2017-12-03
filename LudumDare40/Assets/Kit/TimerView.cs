@@ -32,6 +32,8 @@ namespace Finegamedesign.Utils
 
         public List<Animator> animators;
 
+        public Animator stateNormalAnimator;
+
         public static TimerView[] Binds(Timer model, TimerView[] timers)
         {
             if (timers == null || timers.Length == 0)
@@ -65,6 +67,7 @@ namespace Finegamedesign.Utils
             }
             else
             {
+                model.State.onChanged += OnStateNormalChanged;
                 OnStateChanged(state);
             }
             if (isSyncNormal)
@@ -105,6 +108,11 @@ namespace Finegamedesign.Utils
             {
                 animators.Add(GetComponent<Animator>());
             }
+        }
+
+        private void OnStateNormalChanged(string nextState)
+        {
+            stateNormalAnimator.Play(nextState);
         }
 
         private void OnStateChanged(string nextState)
