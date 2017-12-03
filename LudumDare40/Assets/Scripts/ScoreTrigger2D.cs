@@ -34,6 +34,8 @@ public sealed class ScoreTrigger2D : MonoBehaviour
 
         m_ScoreModel.score.value += m_Amount;
 
+        Debug.Log("ScoreTrigger2D.OnTriggerEnter2D: " + m_Amount + " makes " + m_ScoreModel.score.value);
+
         if (m_Animator != null)
         {
             m_Animator.Play(m_EndState);

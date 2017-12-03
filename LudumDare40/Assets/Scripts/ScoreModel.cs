@@ -13,4 +13,23 @@ public sealed class ScoreModel
 
     public Observable<int> score = new Observable<int>();
     public Observable<int> highScore = new Observable<int>();
+
+    private ScoreModel()
+    {
+        score.onChanged += UpdateHighScore;
+    }
+
+    ~ScoreModel()
+    {
+        score.onChanged -= UpdateHighScore;
+    }
+
+    private void UpdateHighScore(int nextScore)
+    {
+        if (nextScore <= highScore.value)
+        {
+            return;
+        }
+        highScore.value = nextScore;
+    }
 }
