@@ -64,11 +64,13 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
     public void Initialize()
     {
         LivingSystem.onLivingChanged += OnLivingChanged;
+        ScoreWinTrigger2D.onTriggerEnter2D += DestroyBodies;
     }
 
     public void TearDown()
     {
         LivingSystem.onLivingChanged -= OnLivingChanged;
+        ScoreWinTrigger2D.onTriggerEnter2D -= DestroyBodies;
     }
 
     private void OnLivingChanged(bool isLiving)
@@ -77,6 +79,11 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
         {
             return;
         }
+        DestroyBodies();
+    }
+
+    private void DestroyBodies()
+    {
         foreach (var drivable in m_DrivableBodies.GetEntities())
         {
             Rigidbody2D body = drivable.drivableBody.body;
