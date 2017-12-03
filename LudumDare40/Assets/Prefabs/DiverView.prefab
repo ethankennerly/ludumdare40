@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 4848397969676070}
   - component: {fileID: 114005688920813436}
   - component: {fileID: 50531860242364834}
-  - component: {fileID: 61639976391986442}
+  - component: {fileID: 70230613060296002}
   m_Layer: 0
   m_Name: DiverView
   m_TagString: Untagged
@@ -329,8 +329,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61639976391986442
-BoxCollider2D:
+--- !u!70 &70230613060296002
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -341,19 +341,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0029460192, y: 0.0011974573}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.12652838, y: 0.11889529}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.00093844533, y: 0.06289306}
+  m_Size: {x: 0.13020653, y: 0.2472915}
+  m_Direction: 0
 --- !u!95 &95070166358953070
 Animator:
   serializedVersion: 3
