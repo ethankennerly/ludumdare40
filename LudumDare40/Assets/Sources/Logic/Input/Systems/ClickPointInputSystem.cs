@@ -5,6 +5,8 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
     private readonly InputContext m_Context;
     private readonly InputEntity m_Input;
 
+    private float inputMultiplier = 20.0f;
+
     public ClickPointInputSystem(Contexts contexts)
     {
         m_Context = contexts.input;
@@ -28,11 +30,16 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
 
     private void AddListeners()
     {
-        ClickPoint.onClickXY += m_Input.ReplaceInput;
+        ClickPoint.onClickXY += ReplaceInput;
     }
 
     private void RemoveListeners()
     {
-        ClickPoint.onClickXY -= m_Input.ReplaceInput;
+        ClickPoint.onClickXY -= ReplaceInput;
+    }
+
+    private void ReplaceInput(float worldX, float worldY)
+    {
+        m_Input.ReplaceInput(inputMultiplier * worldX, inputMultiplier * worldY);
     }
 }

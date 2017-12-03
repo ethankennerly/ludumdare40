@@ -3,28 +3,22 @@ using UnityEngine;
 
 public sealed class TiltInputSystem : IExecuteSystem
 {
-    private readonly InputContext m_Context;
     private readonly InputEntity m_Input;
+
+    private const float kSquareThreshold = 0.05f * 0.05f;
 
     public TiltInputSystem(Contexts contexts)
     {
-        m_Context = contexts.input;
-        m_Input = m_Context.CreateEntity();
+        m_Input = contexts.input.CreateEntity();
     }
 
     public void Execute()
     {
         Vector3 acceleration = UnityEngine.Input.acceleration;
-        if (acceleration.x == 0.0f && acceleration.y == 0.0f)
+        if (acceleration.sqrMagnitude <= kSquareThreshold)
         {
             return;
         }
-        ReplaceInput(acceleration.x, acceleration.y);
-
-    }
-
-    private void ReplaceInput(float worldX, float worldY)
-    {
-        m_Input.ReplaceInput(worldX, worldY);
+        m_Input.ReplaceInput(acceleration.x, acceleration.y);
     }
 }
