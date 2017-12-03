@@ -720,9 +720,9 @@ MonoBehaviour:
       resetTime: 0
       time: 0
       min: 0
-      max: 40
+      max: 20
       isEnabled: 1
-    initialTime: 30
+    initialTime: 15
 --- !u!114 &114203700832881988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -863,10 +863,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Model:
-    resetTime: 30
-    time: 30
+    resetTime: 15
+    time: 15
     min: 0
-    max: 40
+    max: 20
     isEnabled: 1
   state: fill
   isChangeState: 0
