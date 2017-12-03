@@ -15,6 +15,8 @@ public sealed class AirBubbleView : MonoBehaviour
     [SerializeField]
     private string m_EndState = "BubblePop";
 
+    private bool m_IsIn = false;
+
     private Collider2D m_Collider;
 
     private Animator m_Animator;
@@ -34,6 +36,11 @@ public sealed class AirBubbleView : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D otherNotUsed)
     {
+        m_IsIn = true;
+        if (onAddAir != null)
+        {
+            onAddAir(m_AirAmount);
+        }
         if (m_IsStay)
         {
             return;
@@ -43,18 +50,25 @@ public sealed class AirBubbleView : MonoBehaviour
         {
             m_Animator.Play(m_EndState);
         }
-        if (onAddAir != null)
-        {
-            onAddAir(m_AirAmount);
-        }
     }
 
-    private void OnTriggerStay2D(Collider2D otherNotUsed)
+    // OnTriggerStay2D only fires when moving.
+    // IsIn tracks when still too.
+    private void Update()
     {
+        if (!m_IsIn)
+        {
+            return;
+        }
         if (onAddAir == null)
         {
             return;
         }
         onAddAir(Time.deltaTime * m_AirAmount);
+    }
+
+    private void OnTriggerExit2D(Collider2D otherNotUsed)
+    {
+        m_IsIn = false;
     }
 }
