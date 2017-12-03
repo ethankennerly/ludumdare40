@@ -15,6 +15,7 @@ public sealed class TiltInputSystem : IExecuteSystem
     public void Execute()
     {
         Vector3 acceleration = UnityEngine.Input.acceleration;
+        acceleration.z = 0.0f;
         if (acceleration.sqrMagnitude <= kSquareThreshold)
         {
             return;
