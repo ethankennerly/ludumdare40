@@ -10,6 +10,8 @@ public sealed class GravityScaler2D : MonoBehaviour
     private float m_Min = -100.0f;
     [SerializeField]
     private float m_Max = 100.0f;
+    [SerializeField]
+    private float m_MarginFromZero = 0.04f;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -29,6 +31,15 @@ public sealed class GravityScaler2D : MonoBehaviour
             return;
         }
         float gravityScale = body.gravityScale;
-        body.gravityScale = Mathf.Clamp(gravityScale + amount, m_Min, m_Max);
+        gravityScale = Mathf.Clamp(gravityScale + amount, m_Min, m_Max);
+        if (gravityScale < m_MarginFromZero && gravityScale >= 0.0f)
+        {
+            gravityScale = m_MarginFromZero;
+        }
+        else if (gravityScale > -m_MarginFromZero && gravityScale < 0.0f)
+        {
+            gravityScale = m_MarginFromZero;
+        }
+        body.gravityScale = gravityScale;
     }
 }

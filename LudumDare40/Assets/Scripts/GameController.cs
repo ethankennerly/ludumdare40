@@ -5,6 +5,21 @@ public sealed class GameController : MonoBehaviour
 {
     private Systems m_Systems;
 
+    private void OnEnable()
+    {
+        ScoreWinTrigger2D.onTriggerEnter2D += UpdateWin;
+    }
+
+    private void OnDisable()
+    {
+        ScoreWinTrigger2D.onTriggerEnter2D -= UpdateWin;
+    }
+
+    private void UpdateWin()
+    {
+        gameObject.SetActive(false);
+    }
+
     // Awake is before other game objects' start calls.
     private void Awake()
     {

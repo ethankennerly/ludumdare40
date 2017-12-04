@@ -26,3 +26,4 @@ Instructions:
 - Programming:  Ethan Kennerly
 - Engine: Unity 5.6
 - Audio:  freesound.org
+- Theme:  Ludum Dare 40, "The more you have, the worse it is."
