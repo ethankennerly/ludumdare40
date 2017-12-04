@@ -2,7 +2,7 @@
 
 # Deadly Diver
 
-Brendan Milos's and my game Jam Dec 1st - 4th, 2017.
+Brendan Milos's and my game Jam, December 1st - 3th, 2017.
 
 Play the game and comment at:
 
