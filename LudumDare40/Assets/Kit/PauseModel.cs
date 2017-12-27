@@ -59,13 +59,15 @@ namespace Finegamedesign.Utils
 
         [SerializeField]
         [Tooltip("Scales time to zero when paused and back to one after resumed.")]
-        private bool m_scaleTime = false;
+        private bool m_ScaleTime = false;
 
         public bool scaleTime
         {
-            get { return m_scaleTime; }
-            set { m_scaleTime = value; }
+            get { return m_ScaleTime; }
+            set { m_ScaleTime = value; }
         }
+
+        private float m_PreviousTimeScale = 1.0f;
 
         public void Pause()
         {
@@ -74,8 +76,9 @@ namespace Finegamedesign.Utils
                 return;
             }
             m_IsPaused = true;
-            if (m_scaleTime)
+            if (m_ScaleTime)
             {
+                m_PreviousTimeScale = Time.timeScale;
                 Time.timeScale = 0.0f;
             }
             state = kBeginState;
@@ -88,9 +91,9 @@ namespace Finegamedesign.Utils
                 return;
             }
             m_IsPaused = false;
-            if (m_scaleTime)
+            if (m_ScaleTime)
             {
-                Time.timeScale = 1.0f;
+                Time.timeScale = m_PreviousTimeScale;
             }
             state = kEndState;
         }
