@@ -1,12 +1,16 @@
 using System;
+using UnityEngine;
 
 namespace Finegamedesign.Utils
 {
+    [Serializable]
     public sealed class PauseModel
     {
         private const string kNoneState = "none";
         private const string kBeginState = "begin";
         private const string kEndState = "end";
+
+        public static event Action<string> onStateChanged;
 
         private string m_State = kNoneState;
 
@@ -53,7 +57,15 @@ namespace Finegamedesign.Utils
             }
         }
 
-        public event Action<string> onStateChanged;
+        [SerializeField]
+        [Tooltip("Scales time to zero when paused and back to one after resumed.")]
+        private bool m_scaleTime = false;
+
+        public bool scaleTime
+        {
+            get { return m_scaleTime; }
+            set { m_scaleTime = value; }
+        }
 
         public void Pause()
         {
@@ -62,6 +74,10 @@ namespace Finegamedesign.Utils
                 return;
             }
             m_IsPaused = true;
+            if (m_scaleTime)
+            {
+                Time.timeScale = 0.0f;
+            }
             state = kBeginState;
         }
 
@@ -72,6 +88,10 @@ namespace Finegamedesign.Utils
                 return;
             }
             m_IsPaused = false;
+            if (m_scaleTime)
+            {
+                Time.timeScale = 1.0f;
+            }
             state = kEndState;
         }
     }

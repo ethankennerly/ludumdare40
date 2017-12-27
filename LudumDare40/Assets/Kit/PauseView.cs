@@ -12,6 +12,7 @@ namespace Finegamedesign.Utils
         [Tooltip("Animates when paused, by state names 'none' (default), 'begin' (pause), and 'end' (pause).")]
         public Animator pauseAnimator;
 
+        [SerializeField]
         private PauseModel m_Model = new PauseModel();
         public PauseModel model
         {
@@ -24,7 +25,7 @@ namespace Finegamedesign.Utils
         private void OnEnable()
         {
             UpdateAnimation(model.state);
-            model.onStateChanged += UpdateAnimation;
+            PauseModel.onStateChanged += UpdateAnimation;
             pauseButton.onClick.AddListener(model.Pause);
             resumeButton.onClick.AddListener(model.Resume);
             if (quitButton == null)
@@ -36,7 +37,7 @@ namespace Finegamedesign.Utils
 
         private void OnDisable()
         {
-            model.onStateChanged -= UpdateAnimation;
+            PauseModel.onStateChanged -= UpdateAnimation;
             pauseButton.onClick.RemoveListener(model.Pause);
             resumeButton.onClick.RemoveListener(model.Resume);
             if (quitButton == null)
