@@ -43,13 +43,15 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
         {
             return;
         }
+        float x = input.isLocal ? 0.0f : body.position.x;
+        float y = input.isLocal ? 0.0f : body.position.y;
         if (drivable.horizontalEnabled)
         {
-            dx = input.x - body.position.x;
+            dx = input.x - x;
         }
         if (drivable.verticalEnabled)
         {
-            dx = input.y - body.position.y;
+            dy = input.y - y;
         }
         Vector2 force = new Vector2(
             dx * drivable.force.x,

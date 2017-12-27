@@ -20,6 +20,6 @@ public sealed class TiltInputSystem : IExecuteSystem
         {
             return;
         }
-        m_Input.ReplaceInput(acceleration.x, acceleration.y, false);
+        m_Input.ReplaceInput(acceleration.x, acceleration.y, false, false);
     }
 }

@@ -11,21 +11,23 @@ public partial class InputEntity {
     public InputComponent input { get { return (InputComponent)GetComponent(InputComponentsLookup.Input); } }
     public bool hasInput { get { return HasComponent(InputComponentsLookup.Input); } }
 
-    public void AddInput(float newX, float newY, bool newIsImpulse) {
+    public void AddInput(float newX, float newY, bool newIsImpulse, bool newIsLocal) {
         var index = InputComponentsLookup.Input;
         var component = CreateComponent<InputComponent>(index);
         component.x = newX;
         component.y = newY;
         component.isImpulse = newIsImpulse;
+        component.isLocal = newIsLocal;
         AddComponent(index, component);
     }
 
-    public void ReplaceInput(float newX, float newY, bool newIsImpulse) {
+    public void ReplaceInput(float newX, float newY, bool newIsImpulse, bool newIsLocal) {
         var index = InputComponentsLookup.Input;
         var component = CreateComponent<InputComponent>(index);
         component.x = newX;
         component.y = newY;
         component.isImpulse = newIsImpulse;
+        component.isLocal = newIsLocal;
         ReplaceComponent(index, component);
     }
 

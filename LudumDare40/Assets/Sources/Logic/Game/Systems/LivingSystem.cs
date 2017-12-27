@@ -33,7 +33,6 @@ public sealed class LivingSystem : ReactiveSystem<GameEntity>
             {
                 onLivingChanged(gameEntity.isLiving);
             }
-            break;
         }
     }
 }

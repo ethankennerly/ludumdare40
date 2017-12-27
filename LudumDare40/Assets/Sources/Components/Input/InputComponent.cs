@@ -6,4 +6,5 @@ public sealed class InputComponent : IComponent
     public float x;
     public float y;
     public bool isImpulse;
+    public bool isLocal;
 }
