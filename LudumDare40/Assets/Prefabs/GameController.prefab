@@ -76,6 +76,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed5c31113e4b3b4498de1ac14f745d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Min: -1
-  m_Max: 0.25
+  m_Min: -0.25
+  m_Max: 2
   m_MarginFromZero: 0.16
