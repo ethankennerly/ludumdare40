@@ -382,7 +382,7 @@ MonoBehaviour:
   quitButton: {fileID: 114074632360449944}
   pauseAnimator: {fileID: 95990676889083370}
   m_Model:
-    m_scaleTime: 1
+    m_ScaleTime: 1
 --- !u!114 &114157317305384430
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd8ac5b68fbe9342a99bb8075ea0a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Amount: 5000
+  m_Amount: 10000
   m_IsPickup: 1
   m_EndState: TreasureTaken
 --- !u!114 &114822057931535330
@@ -342,9 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9207c5f555dc949b1c58334cbf4a4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Amount: 0.06
-  m_Min: -100
-  m_Max: 100
+  m_Amount: 0.2
 --- !u!198 &198073793309521754
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -102,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587191301306938}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.183, y: -2.185, z: 0}
+  m_LocalPosition: {x: -0.209, y: -15.091, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4222008076946306}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed382164fd067a4bb83a05f1ee4405b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AirAmount: 4
+  m_AirAmount: 8
   m_IsStay: 0
   m_EndState: BubblePop
 --- !u!114 &114956233870170708
@@ -193,8 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Amount: -0.1
-  m_Min: -100
-  m_Max: 100
 --- !u!198 &198010812875110324
 ParticleSystem:
   m_ObjectHideFlags: 1
