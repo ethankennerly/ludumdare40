@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd8ac5b68fbe9342a99bb8075ea0a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Amount: 5000
+  m_Amount: 10000
   m_IsPickup: 1
   m_EndState: TreasureTaken
 --- !u!114 &114822057931535330
