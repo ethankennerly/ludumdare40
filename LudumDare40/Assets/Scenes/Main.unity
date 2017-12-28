@@ -4389,11 +4389,6 @@ Prefab:
       propertyPath: m_Name
       value: BubbleView (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114113951732365832, guid: 3289ae3d5603d874585f7266c1672c38,
-        type: 2}
-      propertyPath: m_AirAmount
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3289ae3d5603d874585f7266c1672c38, type: 2}
   m_IsPrefabParent: 0
@@ -7250,6 +7245,14 @@ Prefab:
     - target: {fileID: 4957396240594302, guid: 2a11131b33a520a4aa8393821b5e2409, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370201219674014, guid: 2a11131b33a520a4aa8393821b5e2409, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4370201219674014, guid: 2a11131b33a520a4aa8393821b5e2409, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a11131b33a520a4aa8393821b5e2409, type: 2}
