@@ -65,7 +65,7 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
             return;
         }
         body.AddForce(force);
-        if (drivable.impulseSound == null)
+        if (!input.isImpulse || drivable.impulseSound == null)
         {
             return;
         }
