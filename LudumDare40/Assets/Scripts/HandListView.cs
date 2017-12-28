@@ -14,6 +14,7 @@ public sealed class HandListView : MonoBehaviour
 
     private void OnEnable()
     {
+        OnDisable();
         ScoreTrigger2D.onPickup += Pickup;
     }
 

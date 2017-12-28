@@ -65,6 +65,7 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
 
     public void Initialize()
     {
+        TearDown();
         LivingSystem.onLivingChanged += OnLivingChanged;
         ScoreWinTrigger2D.onTriggerEnter2D += DestroyBodies;
     }

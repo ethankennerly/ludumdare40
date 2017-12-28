@@ -18,6 +18,7 @@ public sealed class ScoreModel
 
     private ScoreModel()
     {
+        score.onChanged -= UpdateHighScore;
         score.onChanged += UpdateHighScore;
     }
 

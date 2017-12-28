@@ -13,6 +13,7 @@ public sealed class ScoreView : MonoBehaviour
 
     private void OnEnable()
     {
+        OnDisable();
         UpdateScore(m_ScoreModel.score.value);
         m_ScoreModel.score.onChanged += UpdateScore;
 

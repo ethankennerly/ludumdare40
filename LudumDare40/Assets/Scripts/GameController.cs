@@ -7,6 +7,7 @@ public sealed class GameController : MonoBehaviour
 
     private void OnEnable()
     {
+        OnDisable();
         ScoreWinTrigger2D.onTriggerEnter2D += UpdateWin;
     }
 
@@ -23,6 +24,7 @@ public sealed class GameController : MonoBehaviour
     // Awake is before other game objects' start calls.
     private void Awake()
     {
+        TearDown();
         IdListener.ReplaceIds(true);
 
         // get a reference to the contexts
@@ -44,6 +46,10 @@ public sealed class GameController : MonoBehaviour
 
     private void Update()
     {
+        if (m_Systems == null)
+        {
+            return;
+        }
         // call Execute() on all the IExecuteSystems and
         // ReactiveSystems that were triggered last frame
         m_Systems.Execute();
@@ -53,6 +59,16 @@ public sealed class GameController : MonoBehaviour
 
     private void OnDestroy()
     {
+        TearDown();
+    }
+
+    private void TearDown()
+    {
         IdListener.ReplaceIds(false);
+        if (m_Systems == null)
+        {
+            return;
+        }
+        m_Systems.TearDown();
     }
 }

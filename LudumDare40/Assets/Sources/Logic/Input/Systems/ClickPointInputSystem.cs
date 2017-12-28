@@ -32,6 +32,7 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
 
     private void AddListeners()
     {
+        RemoveListeners();
         ClickPoint.onAxisXY += ReplaceInput;
         KeyView.onKeyDownXY += ReplaceSmallInput;
     }

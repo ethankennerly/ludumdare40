@@ -60,6 +60,7 @@ namespace Finegamedesign.Utils
             {
                 return;
             }
+            RemoveListeners(model);
             if (isChangeState)
             {
                 OnStateChanged(model.State.value);
