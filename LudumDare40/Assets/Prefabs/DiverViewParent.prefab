@@ -1218,7 +1218,7 @@ MonoBehaviour:
     resetTime: 15
     time: 15
     min: 0
-    max: 20
+    max: 15
     isEnabled: 1
     stateNormals:
     - state: DiverDead
@@ -22594,7 +22594,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 80
   m_Sprite: {fileID: 21300000, guid: 3ab773081e51cd6489431260d10e2b05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

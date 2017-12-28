@@ -5,6 +5,7 @@ using UnityEngine;
 public sealed class ScoreTrigger2D : MonoBehaviour
 {
     public static event Action<GameObject> onPickup;
+    public static event Action<int, float, float> onAddPointsAtPosition2D;
 
     [SerializeField]
     private int m_Amount = 1;
@@ -39,6 +40,12 @@ public sealed class ScoreTrigger2D : MonoBehaviour
         m_Collider.enabled = false;
 
         m_ScoreModel.score.value += m_Amount;
+
+        if (m_Amount != 0 && onAddPointsAtPosition2D != null)
+        {
+            Vector3 position = transform.position;
+            onAddPointsAtPosition2D(m_Amount, position.x, position.y);
+        }
 
         if (m_IsPickup && onPickup != null)
         {
