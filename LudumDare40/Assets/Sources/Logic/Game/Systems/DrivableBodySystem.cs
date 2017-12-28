@@ -60,7 +60,16 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
         {
             force *= drivable.impulseMultiplier;
         }
+        if (force.sqrMagnitude == 0f)
+        {
+            return;
+        }
         body.AddForce(force);
+        if (drivable.impulseSound == null)
+        {
+            return;
+        }
+        drivable.impulseSound.Play();
     }
 
     public void Initialize()
