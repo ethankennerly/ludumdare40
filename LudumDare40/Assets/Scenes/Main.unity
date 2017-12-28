@@ -212,11 +212,6 @@ Prefab:
       propertyPath: m_Name
       value: TreasureViewBig (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114020499140119984, guid: 2a11131b33a520a4aa8393821b5e2409,
-        type: 2}
-      propertyPath: m_Amount
-      value: 5000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a11131b33a520a4aa8393821b5e2409, type: 2}
   m_IsPrefabParent: 0
@@ -4632,11 +4627,6 @@ Prefab:
     - target: {fileID: 4074940351776402, guid: ced7ef8bc8fb589488e1c3e308fc3c0f, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114445757196851822, guid: ced7ef8bc8fb589488e1c3e308fc3c0f,
-        type: 2}
-      propertyPath: m_Amount
-      value: 0.06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ced7ef8bc8fb589488e1c3e308fc3c0f, type: 2}
