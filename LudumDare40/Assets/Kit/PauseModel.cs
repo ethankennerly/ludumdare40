@@ -67,7 +67,9 @@ namespace Finegamedesign.Utils
             set { m_ScaleTime = value; }
         }
 
-        private float m_PreviousTimeScale = 1.0f;
+        private float m_PreviousTimeScale = 1f;
+
+        private bool m_IsVerbose = true;
 
         public void Pause()
         {
@@ -79,7 +81,15 @@ namespace Finegamedesign.Utils
             if (m_ScaleTime)
             {
                 m_PreviousTimeScale = Time.timeScale;
-                Time.timeScale = 0.0f;
+                if (m_PreviousTimeScale <= 0f)
+                {
+                    m_PreviousTimeScale = 1f;
+                }
+                if (m_IsVerbose)
+                {
+                    DebugUtil.Log("PauseModel.Pause: " + m_PreviousTimeScale + " time " + Time.timeScale);
+                }
+                Time.timeScale = 0f;
             }
             state = kBeginState;
         }
@@ -93,6 +103,14 @@ namespace Finegamedesign.Utils
             m_IsPaused = false;
             if (m_ScaleTime)
             {
+                if (m_PreviousTimeScale <= 0f)
+                {
+                    m_PreviousTimeScale = 1f;
+                }
+                if (m_IsVerbose)
+                {
+                    DebugUtil.Log("PauseModel.Resume: " + m_PreviousTimeScale + " time " + Time.timeScale);
+                }
                 Time.timeScale = m_PreviousTimeScale;
             }
             state = kEndState;

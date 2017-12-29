@@ -22,6 +22,21 @@ namespace Finegamedesign.Utils
             }
         }
 
+        // Avoids case on WebGL.
+        // Scene reloads but no interaction until pause and resume again.
+        // No problem in Unity Editor WebGL.
+        // But in browser, some clicks and keypresses are ignored.
+        // Pausing and resuming works around this.
+        private void Start()
+        {
+            m_Model.Resume();
+        }
+
+        private void OnDestroy()
+        {
+            m_Model.Resume();
+        }
+
         private void OnEnable()
         {
             UpdateAnimation(model.state);

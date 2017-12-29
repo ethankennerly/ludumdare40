@@ -31,13 +31,13 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
     private void AddListeners()
     {
         RemoveListeners();
-        ClickPoint.onAxisXY += ReplaceInput;
+        ClickPoint.onAxisXY += ReplaceAbsoluteInput;
         KeyView.onKeyDownXY += ReplaceRelativeInput;
     }
 
     private void RemoveListeners()
     {
-        ClickPoint.onAxisXY -= ReplaceInput;
+        ClickPoint.onAxisXY -= ReplaceAbsoluteInput;
         KeyView.onKeyDownXY -= ReplaceRelativeInput;
     }
 
@@ -46,7 +46,7 @@ public sealed class ClickPointInputSystem : IInitializeSystem, IExecuteSystem, I
         m_Input.ReplaceInput(axisX, axisY, true, true);
     }
 
-    private void ReplaceInput(float axisX, float axisY)
+    private void ReplaceAbsoluteInput(float axisX, float axisY)
     {
         m_Input.ReplaceInput(axisX, axisY, true, false);
     }

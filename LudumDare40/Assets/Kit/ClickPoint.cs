@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Finegamedesign.Utils
 {
@@ -103,7 +104,11 @@ namespace Finegamedesign.Utils
             return true;
         }
 
-        // Caches time to avoid multiple calls per frame.
+        // Caches time to ignore multiple calls per frame.
+        //
+        // Ignores if over UI object.
+        // Otherwise, a tap on a button is also reacted as a tap in viewport.
+        // For example, in Deadly Diver, a viewport tap moves the diver.
         public static void Update()
         {
             if (s_UpdateTime == Time.time)
@@ -112,6 +117,10 @@ namespace Finegamedesign.Utils
             }
             s_UpdateTime = Time.time;
             if (!Input.GetMouseButtonDown(0))
+            {
+                return;
+            }
+            if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
             }
