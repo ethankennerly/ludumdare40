@@ -36,15 +36,15 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
 
     private static void AddForce(DrivableBodyComponent drivable, InputComponent input)
     {
-        float dx = 0.0f;
-        float dy = 0.0f;
+        float dx = 0f;
+        float dy = 0f;
         Rigidbody2D body = drivable.body;
         if (body == null)
         {
             return;
         }
-        float x = input.isLocal ? 0.0f : body.position.x;
-        float y = input.isLocal ? 0.0f : body.position.y;
+        float x = input.isLocal ? 0f : body.position.x;
+        float y = input.isLocal ? 0f : body.position.y;
         if (drivable.horizontalEnabled)
         {
             dx = input.x - x;
@@ -59,6 +59,10 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
         if (input.isImpulse)
         {
             force *= drivable.impulseMultiplier;
+        }
+        if (input.isLocal)
+        {
+            force *= drivable.relativeImpulseMultiplier;
         }
         if (force.sqrMagnitude == 0f)
         {
