@@ -42,3 +42,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Certificates
+*.der
+*.keystore

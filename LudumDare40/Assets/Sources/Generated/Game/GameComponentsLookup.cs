@@ -9,14 +9,16 @@
 public static class GameComponentsLookup {
 
     public const int AirSupply = 0;
-    public const int DrivableBody = 1;
-    public const int Id = 2;
-    public const int Living = 3;
+    public const int Audit = 1;
+    public const int DrivableBody = 2;
+    public const int Id = 3;
+    public const int Living = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
         "AirSupply",
+        "Audit",
         "DrivableBody",
         "Id",
         "Living"
@@ -24,6 +26,7 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(AirSupplyComponent),
+        typeof(AuditComponent),
         typeof(DrivableBodyComponent),
         typeof(IdComponent),
         typeof(LivingComponent)

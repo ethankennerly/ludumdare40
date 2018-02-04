@@ -25,7 +25,7 @@ public sealed class GameController : MonoBehaviour
     private void Awake()
     {
         TearDown();
-        IdListener.ReplaceIds(true);
+        ReplaceOnCreated.Subscribe(true);
 
         // get a reference to the contexts
         var contexts = Contexts.sharedInstance;
@@ -64,7 +64,7 @@ public sealed class GameController : MonoBehaviour
 
     private void TearDown()
     {
-        IdListener.ReplaceIds(false);
+        ReplaceOnCreated.Subscribe(false);
         if (m_Systems == null)
         {
             return;

@@ -11,7 +11,7 @@ public partial class GameEntity {
     public DrivableBodyComponent drivableBody { get { return (DrivableBodyComponent)GetComponent(GameComponentsLookup.DrivableBody); } }
     public bool hasDrivableBody { get { return HasComponent(GameComponentsLookup.DrivableBody); } }
 
-    public void AddDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier) {
+    public void AddDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier, float newRelativeImpulseMultiplier, UnityEngine.AudioSource newImpulseSound) {
         var index = GameComponentsLookup.DrivableBody;
         var component = CreateComponent<DrivableBodyComponent>(index);
         component.body = newBody;
@@ -19,10 +19,12 @@ public partial class GameEntity {
         component.verticalEnabled = newVerticalEnabled;
         component.force = newForce;
         component.impulseMultiplier = newImpulseMultiplier;
+        component.relativeImpulseMultiplier = newRelativeImpulseMultiplier;
+        component.impulseSound = newImpulseSound;
         AddComponent(index, component);
     }
 
-    public void ReplaceDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier) {
+    public void ReplaceDrivableBody(UnityEngine.Rigidbody2D newBody, bool newHorizontalEnabled, bool newVerticalEnabled, UnityEngine.Vector2 newForce, float newImpulseMultiplier, float newRelativeImpulseMultiplier, UnityEngine.AudioSource newImpulseSound) {
         var index = GameComponentsLookup.DrivableBody;
         var component = CreateComponent<DrivableBodyComponent>(index);
         component.body = newBody;
@@ -30,6 +32,8 @@ public partial class GameEntity {
         component.verticalEnabled = newVerticalEnabled;
         component.force = newForce;
         component.impulseMultiplier = newImpulseMultiplier;
+        component.relativeImpulseMultiplier = newRelativeImpulseMultiplier;
+        component.impulseSound = newImpulseSound;
         ReplaceComponent(index, component);
     }
 

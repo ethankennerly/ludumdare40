@@ -1,7 +1,6 @@
-using System;
 using Entitas;
-using UnityEngine;
 using Finegamedesign.Utils;
+using System;
 
 [Serializable]
 [Game]
