@@ -23,10 +23,14 @@ public sealed class ReplaceOnCreated
     private static void AuditOnRetained(IContext context, IEntity entity)
     {
         IAuditEntity auditEntity = (IAuditEntity)entity;
-        auditEntity.ReplaceAudit(new List<string>());
         ((Entity)auditEntity).OnEntityRetained += AppendLog;
     }
 
+    // Does not append log if entity has no audit.
+    // This prevents spam of entities that get retained every frame.
+    // To enable log, add an audit component to the entity.
+    // Likewise, to disable log, remove an audit component from the entity.
+    // In visual debugging, there is a drop-down to add components.
     private static void AppendLog(IEntity entity, object owner)
     {
         IAuditEntity auditEntity = (IAuditEntity)entity;
@@ -34,12 +38,12 @@ public sealed class ReplaceOnCreated
         {
              return;
         }
-        List<string> logs;
-        if (auditEntity.hasAudit)
+        if (!auditEntity.hasAudit)
         {
-            logs = auditEntity.audit.logs;
+            return;
         }
-        else
+        List<string> logs = auditEntity.audit.logs;
+        if (logs == null)
         {
             logs = new List<string>();
         }
