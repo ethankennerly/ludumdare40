@@ -1,3 +1,6 @@
 [submodule "LudumDare40/Assets/UnityToykit"]
 	path = LudumDare40/Assets/UnityToykit
 	url = git@github.com:ethankennerly/UnityToykit.git
+[submodule "LudumDare40/Assets/Entitas-VisualDebugging-System-Flow"]
+	path = LudumDare40/Assets/Entitas-VisualDebugging-System-Flow
+	url = git@github.com:ethankennerly/Entitas-VisualDebugging-System-Flow.git
