@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializeSystem, ITearDownSystem
+public sealed class DrivableBodySystem : ObservableReactiveSystem<InputEntity>, IInitializeSystem, ITearDownSystem
 {
     private readonly IGroup<GameEntity> m_DrivableBodies;
 
@@ -23,6 +23,7 @@ public sealed class DrivableBodySystem : ReactiveSystem<InputEntity>, IInitializ
 
     protected override void Execute(List<InputEntity> inputEntities)
     {
+        base.Execute(inputEntities);
         for (int inputIndex = 0, inputEnd = inputEntities.Count; inputIndex < inputEnd; ++inputIndex)
         {
             InputEntity inputEntity = inputEntities[inputIndex];

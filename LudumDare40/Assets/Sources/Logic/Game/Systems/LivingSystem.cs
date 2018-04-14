@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Entitas;
 using UnityEngine;
 
-public sealed class LivingSystem : ReactiveSystem<GameEntity>
+public sealed class LivingSystem : ObservableReactiveSystem<GameEntity>
 {
     public static event Action<bool> onLivingChanged;
 
@@ -26,6 +26,7 @@ public sealed class LivingSystem : ReactiveSystem<GameEntity>
 
     protected override void Execute(List<GameEntity> entities)
     {
+        base.Execute(entities);
         for (int gameIndex = 0, gameEnd = entities.Count; gameIndex < gameEnd; ++gameIndex)
         {
             GameEntity gameEntity = entities[gameIndex];
